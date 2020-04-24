@@ -1,21 +1,19 @@
 #coding: utf-8
 import time 
+from typing import Tuple
 
 class Tomo:
-    def __init__(self, name, age):
-        self.moralState = ["Bonheur", "Tristesse", "Colere", "Peur", "Faim", "Mort"]
+    def __init__(self, name: str, age: int):
+        self.moralState = ("Bonheur", "Tristesse", "Colere", "Peur", "Faim", "Mort")
         self.moralID = 0 # Au début du commence "Heureux"
         self.name = name # Nom en chaine de caractère
         self.health = 100 # Taux de point de vie en %
         self.age = 1 # Age en tant qu'entier 
-        self.alive = True # Est-ce que le tomo est en vie ? 
+        self.is_alive = True # Est-ce que le tomo est en vie ? 
         self.delay = 100 # delay en ms
         self.chrono = 0 # Compteur (ms)
 
-    def isAlive(self):
-        return self.alive 
-
-    def eat(self, pts):
+    def eat(self, pts: int):
         if self.health >= 100: # Gére le cas ou on ne peut plus manger 
             print(f"{self.name} est repus")
             self.health = 100 # Contrainde la valeur a 100 si health = 95 et que pts vaut 10
@@ -26,7 +24,7 @@ class Tomo:
         print(f"{self.name} est mort de {self.moralState[self.moralID]}.")
         print("GAME OVER")
     
-    def update(self, dt):
+    def update(self, dt: int):
         self.chrono += dt
 
         # Attendre self.DELAY seconde
@@ -54,6 +52,6 @@ class Tomo:
 
 animal = Tomo("Tomo", 14)
 
-while animal.isAlive():
+while animal.is_alive:
     animal.update(16) # Mise a jour du tomo
     time.sleep(16 / 1000) # A modifier plus tard

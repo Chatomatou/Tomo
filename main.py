@@ -17,13 +17,13 @@ class Tomo:
 
     def eat(self, pts):
         if self.health >= 100: # Gére le cas ou on ne peut plus manger 
-            print("{} est repus".format(self.name))
+            print(f"{self.name} est repus")
             self.health = 100 # Contrainde la valeur a 100 si health = 95 et que pts vaut 10
         else:
             self.health += pts # Manger reviens a augmenter
 
     def dead(self):
-        print("{} est mort de {}.".format(self.name, self.moralState[self.moralID]))
+        print(f"{self.name} est mort de {self.moralState[self.moralID]}.")
         print("GAME OVER")
     
     def update(self, dt):
@@ -50,7 +50,7 @@ class Tomo:
             self.dead()
             self.alive = False
         
-        print("La vie de tomo {} % et a pour moral {}".format(self.health, self.moralState[self.moralID]))
+        print(f"La vie de tomo {self.health} % et a pour moral {self.moralState[self.moralID]}")
 
 animal = Tomo("Tomo", 14)
 

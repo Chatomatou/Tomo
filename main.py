@@ -15,9 +15,10 @@ class Tomo:
     def isAlive(self):
         return self.alive 
 
-    def eat(pts):
-        if self.health == 100: # Gére le cas ou on ne peut plus manger 
+    def eat(self, pts):
+        if self.health >= 100: # Gére le cas ou on ne peut plus manger 
             print("{} est repus".format(self.name))
+            self.health = 100 # Contrainde la valeur a 100 si health = 95 et que pts vaut 10
         else:
             self.health += pts # Manger reviens a augmenter
 
